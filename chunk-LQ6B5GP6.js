@@ -1,0 +1,1 @@
+import{T as u,i as o}from"./chunk-EQ7ENXCV.js";var e=class t{customerSubject=new o(null);customer$=this.customerSubject.asObservable();constructor(){}setCustomer(r){this.customerSubject.next(r)}getCustomer(){return this.customerSubject.getValue()}static \u0275fac=function(s){return new(s||t)};static \u0275prov=u({token:t,factory:t.\u0275fac,providedIn:"root"})};export{e as a};
