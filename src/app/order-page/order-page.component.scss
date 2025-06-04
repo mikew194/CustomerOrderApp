@@ -1,0 +1,39 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+
+    mat-form-field {
+      margin-bottom: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  }
+
+  .estimate-section {
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+
+    .estimated-value {
+      font-size: 2em;
+      color: #3f51b5; /* Primary color */
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  }
+}

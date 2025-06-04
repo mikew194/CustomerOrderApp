@@ -1,0 +1,44 @@
+      <div class="customer-container">
+        <h2>Customer Information</h2>
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="customerForm.get('name')?.hasError('required') && customerForm.get('name')?.touched">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+            <mat-error *ngIf="customerForm.get('address')?.hasError('required') && customerForm.get('address')?.touched">
+              Address is required
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" type="tel">
+            <mat-error *ngIf="customerForm.get('phone')?.hasError('required') && customerForm.get('phone')?.touched">
+              Phone is required
+            </mat-error>
+            <mat-error *ngIf="customerForm.get('phone')?.hasError('pattern') && customerForm.get('phone')?.touched">
+              Please enter a valid 10-digit phone number
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error *ngIf="customerForm.get('email')?.hasError('required') && customerForm.get('email')?.touched">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="customerForm.get('email')?.hasError('email') && customerForm.get('email')?.touched">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+      
+          <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid">Submit</button>
+        </form>
+      </div>

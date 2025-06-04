@@ -1,0 +1,77 @@
+<div class="order-container">
+  <h2>Order Details</h2>
+  <div *ngIf="customer">
+    <h3>Customer Information:</h3>
+    <p><strong>Name:</strong> {{ customer.name }}</p>
+    <p><strong>Email:</strong> {{ customer.email }}</p>
+  </div>
+
+  <form [formGroup]="orderForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Order Date</mat-label>
+      <input matInput formControlName="orderDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Estimated Square Feet</mat-label>
+      <input matInput formControlName="estimatedSquareFeet" type="number" />
+      <mat-error
+        *ngIf="
+          orderForm.get('estimatedSquareFeet')?.hasError('required') &&
+          orderForm.get('estimatedSquareFeet')?.touched
+        "
+      >
+        Square Feet is required
+      </mat-error>
+      <mat-error
+        *ngIf="
+          orderForm.get('estimatedSquareFeet')?.hasError('min') &&
+          orderForm.get('estimatedSquareFeet')?.touched
+        "
+      >
+        Square Feet must be at least 1
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select Email Application</mat-label>
+      <mat-select formControlName="selectedEmail">
+        <mat-option *ngFor="let option of emailOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="
+          orderForm.get('selectedEmail')?.hasError('required') &&
+          orderForm.get('selectedEmail')?.touched
+        "
+      >
+        Email application is required
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="calculateEstimate()"
+      [disabled]="orderForm.invalid"
+    >
+      Calculate Estimate
+    </button>
+  </form>
+
+  <div *ngIf="estimatedCost !== null" class="estimate-section" #targetButton>
+    <h3>Estimated Cost:</h3>
+    <p class="estimated-value">${{ estimatedCost.toFixed(2) }}</p>
+
+    <button
+      
+      mat-raised-button
+      color="primary"
+      (click)="sendNotification()"
+      [disabled]="!emailBody || !customer"
+    >
+      Send Notification
+    </button>
+  </div>
+</div>
