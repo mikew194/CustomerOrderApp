@@ -80,20 +80,19 @@ export class OrderComponent implements OnInit, OnDestroy {
 
   generateEmailBody(): void {
     if (this.customer && this.estimatedCost !== null) {
-      this.emailBody = `
-              Dear ${this.customer.name},
-      
-              Thank you for your inquiry. Here are your order details:
-      
-              Order Date: ${new Date().toLocaleDateString()}
-              Estimated Square Feet: ${this.orderForm.get('estimatedSquareFeet')?.value} sq ft
-              Estimated Cost: $${this.estimatedCost.toFixed(2)}
-      
-              We will be in touch shortly to finalize the details.
-      
-              Sincerely,
-              A-Stain Service Team
-            `;
+      this.emailBody =
+        `Dear ${this.customer.name}\n` +
+        `Address: ${this.customer.address}\n` +
+        `Phone: ${this.customer.phone}\n` +
+        `Email: ${this.customer.email}\n\n` +
+        `Thank you for your inquiry. Here are your order details:\n\n` +
+        `Order Date: ${new Date().toLocaleDateString()}\n` +
+        `Estimated Square Feet: ${this.orderForm.get('estimatedSquareFeet')?.value} sq ft\n` +
+        `Estimated Cost: $${this.estimatedCost.toFixed(2)}\n\n` +
+        `We will be in touch shortly to finalize the details.\n\n` +
+        `Sincerely,\n` +
+        `A-Stain Service Team\n` +
+        `(504)418-7834`;
     }
   }
 

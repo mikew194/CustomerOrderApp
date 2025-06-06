@@ -1,5 +1,5 @@
-      <div class="customer-container">
-        <h2>Customer Information</h2>
+      <div class="customer-container" style="background-color: lightgray;">
+        <h2 style="background-color: gold;">Customer Information</h2>
         <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
           <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
@@ -8,15 +8,7 @@
               Name is required
             </mat-error>
           </mat-form-field>
-      
-          <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <textarea matInput formControlName="address"></textarea>
-            <mat-error *ngIf="customerForm.get('address')?.hasError('required') && customerForm.get('address')?.touched">
-              Address is required
-            </mat-error>
-          </mat-form-field>
-      
+
           <mat-form-field appearance="fill">
             <mat-label>Phone</mat-label>
             <input matInput formControlName="phone" type="tel">
@@ -38,7 +30,17 @@
               Please enter a valid email address
             </mat-error>
           </mat-form-field>
-      
+
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+            <mat-error *ngIf="customerForm.get('address')?.hasError('required') && customerForm.get('address')?.touched">
+              Address is required
+            </mat-error>
+          </mat-form-field>
+                
           <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid">Submit</button>
         </form>
+        <br/>
+        <textarea style="width:100% ;">Note: The email entered must be installed on your device.</textarea>
       </div>

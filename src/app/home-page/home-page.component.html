@@ -1,6 +1,119 @@
-<div class="home-container">
-  <h1>Welcome to A_Stain Flooring!</h1>
-  <img src="assets/AI Assisted Development.png" alt="Home Image" />
+<div class="home-container" style="background-color: lightgray;">
+  <br/>
+  <div>
+  <svg
+    width="200"
+    height="200"
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFD700" />
+        <stop offset="50%" stop-color="#DAA520" />
+        <stop offset="100%" stop-color="#B8860B" />
+      </linearGradient>
+      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow
+          dx="2"
+          dy="2"
+          stdDeviation="3"
+          flood-color="#000000"
+          flood-opacity="0.5"
+        />
+      </filter>
+    </defs>
+
+    <circle
+      cx="100"
+      cy="80"
+      r="70"
+      fill="url(#goldGradient)"
+      filter="url(#shadow)"
+    />
+
+    <path
+      d="M40 50 C60 45, 140 45, 160 50"
+      stroke="#36454F"
+      stroke-width="1.5"
+      opacity="0.4"
+    />
+    <path
+      d="M45 70 C65 65, 135 65, 155 70"
+      stroke="#36454F"
+      stroke-width="1.5"
+      opacity="0.4"
+    />
+    <path
+      d="M50 90 C70 85, 130 85, 150 90"
+      stroke="#36454F"
+      stroke-width="1.5"
+      opacity="0.4"
+    />
+
+    <rect
+      x="70"
+      y="120"
+      width="60"
+      height="40"
+      fill="#696969"
+      filter="url(#shadow)"
+    />
+    <polygon
+      points="60,120 140,120 100,90"
+      fill="#696969"
+      filter="url(#shadow)"
+    />
+    <rect
+      x="85"
+      y="160"
+      width="30"
+      height="20"
+      fill="#696969"
+      filter="url(#shadow)"
+    />
+    <path
+      d="M100 185 C95 175, 105 175, 100 185 Z M100 185 L90 195 C95 205, 105 205, 110 195 L100 185 Z"
+      fill="#000000"
+      stroke="#1A1A1A"
+      stroke-width="2"
+      filter="url(#shadow)"
+    />
+
+    <text
+      x="100"
+      y="30"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold"
+      fill="#000000"
+      text-anchor="middle"
+      filter="url(#shadow)"
+    >
+      A Stain
+    </text>
+    <text
+      x="100"
+      y="48"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold"
+      fill="#000000"
+      text-anchor="middle"
+      filter="url(#shadow)"
+    >
+      Flooring
+    </text>
+  </svg>
+  </div>
+  <h1>Welcome to AStain Flooring!</h1>
+  <p class="company-slogan" style="text-align: left; width:100%">
+    Your trusted partner with over 25 years of experience with custom floor
+    staining and unique floor designs. We specialize in transforming your floors
+    into works of art, offering a wide range of colors and custom image options.
+  </p>
+  <!-- <img src="assets/AI Assisted Development.png" alt="Home Image" /> -->
   <button mat-raised-button color="primary" (click)="onSubmit()">
     Get Started
   </button>

@@ -1,5 +1,5 @@
-<div class="order-container">
-  <h2>Order Details</h2>
+<div class="order-container" style="background-color: lightgray;">
+  <h2 style="background-color: gold;">Order Details</h2>
   <div *ngIf="customer">
     <h3>Customer Information:</h3>
     <p><strong>Name:</strong> {{ customer.name }}</p>
@@ -60,18 +60,20 @@
     </button>
   </form>
 
-  <div *ngIf="estimatedCost !== null" class="estimate-section" #targetButton>
+  <div  class="estimate-section" #targetButton>
     <h3>Estimated Cost:</h3>
-    <p class="estimated-value">${{ estimatedCost.toFixed(2) }}</p>
+    <p class="estimated-value">
+      ${{ estimatedCost != null ? estimatedCost.toFixed(2) : '0.00' }}
+    </p>
 
     <button
-      
+      *ngIf="estimatedCost !== null"
       mat-raised-button
       color="primary"
       (click)="sendNotification()"
       [disabled]="!emailBody || !customer"
     >
-      Send Notification
+      Submit Estimate
     </button>
   </div>
 </div>
